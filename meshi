@@ -9,12 +9,11 @@ ootoya
 soramame
 lunchtime
 gakushoku
-harumonia
-nisishoku
+royal
+nisishoku-den
 jiro-yaen
 jiro-fuchu
 jiro-sengawa
-chofu-DJ
 saburou
 mac
 tenya
@@ -34,11 +33,9 @@ C&C
 misdo
 sukekaku
 tonsuke
-guracche
 takeya
 tatsumi
 matsuri
-DJ
 cowboyfamily
 kurazushi
 chatnoir
@@ -63,5 +60,6 @@ chofudojo
 saburou
 saburou
 shabuyou
-shokujin" | shuf | head -1
+shokujin
+gyoza-taishoken" | shuf | head -1
 fi
