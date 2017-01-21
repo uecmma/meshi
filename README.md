@@ -13,4 +13,9 @@ shokujin
 
 Bob < Whoo! Let's go to shokujin!!!
 
+## Installation
+
+```bash
+sudo ./install.sh # or $ PREFIX=/prefix/path ./install.sh
+```
 

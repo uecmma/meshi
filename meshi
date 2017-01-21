@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+set -eo pipefail
+[ -n "$MESHI_DEBUG" ] && set -x
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
@@ -14,10 +15,31 @@ if ! type "$SHUF_COMMAND" > /dev/null 2>&1; then
   exit 1
 fi
 
-MESHI_LIST_PATH="$SCRIPT_DIR/meshi.list"
+
+function usage() {
+  cat <<EOS
+Usage: meshi [option] [name]
+
+ --help    : Show this help
+ -l/--list : Use custom meshi list (default: /etc/meshi/meshi.list)
+EOS
+  [ -z "$1" ] || exit "$1"
+}
+
+if [[ "$1" == '--help' ]]; then
+  usage 0
+fi
+
+MESHI_LIST_PATH="/etc/meshi/meshi.list"
+if [[ "$1" == '-l' ]] || [[ "$1" == '--list' ]]; then
+  MESHI_LIST_PATH="$2"
+  shift 2
+fi
+
 
 if [ "$1" != '' ]; then
   echo $1
 else
   cat $MESHI_LIST_PATH | $SHUF_COMMAND | head -1
 fi
+
