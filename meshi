@@ -62,5 +62,6 @@ chofudojo
 saburou
 saburou
 shabuyou
-shokujin" | shuf | head -1
+shokujin
+gyoza-taishoken" | shuf | head -1
 fi
