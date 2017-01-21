@@ -1,67 +1,23 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+case "$(uname -s)" in
+  Darwin ) SHUF_COMMAND='gshuf' ;;
+  * ) SHUF_COMMAND='shuf' ;;
+esac
+
+if ! type "$SHUF_COMMAND" > /dev/null 2>&1; then
+  echo "'$SHUF_COMMAND' command not found" >&2
+  exit 1
+fi
+
+MESHI_LIST_PATH="$SCRIPT_DIR/meshi.list"
+
 if [ "$1" != '' ]; then
   echo $1
 else
-  echo "shokujin
-shokujin
-shokujin
-ootoya
-soramame
-lunchtime
-gakushoku
-harumonia
-nisishoku
-jiro-yaen
-jiro-fuchu
-jiro-sengawa
-chofu-DJ
-saburou
-mac
-tenya
-sutadon
-matsuya
-sennen
-saize
-koizushi
-bigboy
-gasuto
-jonasan
-shokujin
-karendo
-raja
-coco1
-C&C
-misdo
-sukekaku
-tonsuke
-guracche
-takeya
-tatsumi
-matsuri
-DJ
-cowboyfamily
-kurazushi
-chatnoir
-starbucks
-boteju
-tonchinkan
-dandadan
-honorurushokudo
-egao
-kenta
-wakamatsuya
-sakananomanma
-ohara
-shirataka
-hidakaya
-nakau
-yoshinoya
-gyukaku
-takechan
-gyushige
-chofudojo
-saburou
-saburou
-shabuyou
-shokujin" | shuf | head -1
+  cat $MESHI_LIST_PATH | $SHUF_COMMAND | head -1
 fi
