@@ -3,8 +3,6 @@
 set -eo pipefail
 [ -n "$MESHI_DEBUG" ] && set -x
 
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-
 case "$(uname -s)" in
   Darwin ) SHUF_COMMAND='gshuf' ;;
   * ) SHUF_COMMAND='shuf' ;;
@@ -38,8 +36,8 @@ fi
 
 
 if [ "$1" != '' ]; then
-  echo $1
+  echo "$1"
 else
-  cat $MESHI_LIST_PATH | $SHUF_COMMAND | head -1
+  "$SHUF_COMMAND" "$MESHI_LIST_PATH" | head -1
 fi
 
