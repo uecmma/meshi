@@ -1,4 +1,4 @@
-# meshi
+# meshi [![Travis Status][travis-image]][travis-url]
 
 ## Let's have a lunch!
 
@@ -18,4 +18,7 @@ Bob < Whoo! Let's go to shokujin!!!
 ```bash
 sudo ./install.sh # or $ PREFIX=/prefix/path ./install.sh
 ```
+
+[travis-image]: https://travis-ci.org/uecmma/meshi.svg?branch=master
+[travis-url]: https://travis-ci.org/uecmma/meshi
 
