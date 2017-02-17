@@ -1,0 +1,18 @@
+language: bash
+sudo: required
+
+addons:
+  apt:
+    sources:
+    - debian-sid
+    packages:
+    - shellcheck
+
+script:
+  - shellcheck meshi
+  - sudo ./install.sh
+  - export PATH="/opt/local/bin:$PATH"
+  - meshi
+
+matrix:
+  fast_finish: true
